@@ -21,6 +21,7 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 
 - [`bcftools`](http://samtools.github.io/bcftools/)
 - [`GATK 4`](https://gatk.broadinstitute.org/)
+- [`OrthoFinder`](https://davidemms.github.io/)
 - `R` with the following packages:
   - `tidyverse`
   - `data.table`
@@ -32,6 +33,7 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 - VCF files annotated with gene information (e.g., `TGN=...`)
 - BAM files for F1 samples, coordinate-sorted and indexed
 - Sample lists (`F1_D1_samples.txt`) and filtered SNP position files per day
+- Amino acid sequences 
 
 ---
 
@@ -40,6 +42,7 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 - Filtered VCFs per sample
 - ASEReadCounter tables per sample
 - Merged and summarized gene-level ASE tables per day
+- Tables containing the homeologous genes in switchgrass
 
 ---
 

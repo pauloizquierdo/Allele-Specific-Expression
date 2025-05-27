@@ -13,6 +13,7 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 | `03_filter_population_vcf_by_homoParents_heteF1.sh` | Filters a population-level VCF using position lists of selected SNPs from parents and F1. |
 | `04_ASEReadCounter_by_sample_array.sh` | SLURM array script to run GATK ASEReadCounter on each F1 sample using filtered VCFs and BAMs. |
 | `05_summarize_ASE_gene_level.r` | Combines ASE count tables per day, joins them with gene annotations, and summarizes mean/median/sd/snps expression per gene. |
+| `06_orthofinder.sh` | Identifies homeologous genes between the N and K subgenomes. |
 
 ---
 

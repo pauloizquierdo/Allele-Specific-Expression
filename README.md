@@ -13,7 +13,8 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 | `03_filter_population_vcf_by_homoParents_heteF1.sh` | Filters a population-level VCF using position lists of selected SNPs from parents and F1. |
 | `04_ASEReadCounter_by_sample_array.sh` | SLURM array script to run GATK ASEReadCounter on each F1 sample using filtered VCFs and BAMs. |
 | `05_summarize_ASE_gene_level.r` | Combines ASE count tables per day, joins them with gene annotations, and summarizes mean/median/sd/snps expression per gene. |
-| `06_orthofinder.sh` | Identifies homeologous genes between the N and K subgenomes. |
+| `06_orthofinder.sh` | Identifies orthologous genes between the N and K subgenomes. |
+| `07_genespace` | Idetify syntenic orthologous |
 
 ---
 
@@ -22,6 +23,7 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 - [`bcftools`](http://samtools.github.io/bcftools/)
 - [`GATK 4`](https://gatk.broadinstitute.org/)
 - [`OrthoFinder`](https://davidemms.github.io/)
+- [`GENESPACE`](https://github.com/jtlovell/GENESPACE)
 - `R` with the following packages:
   - `tidyverse`
   - `data.table`
@@ -33,7 +35,8 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 - VCF files annotated with gene information (e.g., `TGN=...`)
 - BAM files for F1 samples, coordinate-sorted and indexed
 - Sample lists (`F1_D1_samples.txt`) and filtered SNP position files per day
-- Amino acid sequences 
+- Amino acid sequences
+- Bed files from reference genomes
 
 ---
 
@@ -42,14 +45,15 @@ This repository contains a pipeline for identifying and summarizing **allele-spe
 - Filtered VCFs per sample
 - ASEReadCounter tables per sample
 - Merged and summarized gene-level ASE tables per day
-- Tables containing the homeologous genes in switchgrass
+- Table containing the orthologous genes
+- Table containing the syntenic orthologous genes
 
 ---
 
 ## 📌 Notes
 
 - Ensure all VCFs are compressed and indexed (`.vcf.gz + .tbi`).
-- Scripts are meant to be run in order: `01 → 05`.
+- Scripts are meant to be run in order: `01 → 05`, `06 → 07`
 
 ---
 
